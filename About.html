@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    
+    <style>
+      .nav-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+      }
+
+      .nav-item {
+        margin-right: 15px;
+      }
+
+      .nav-item:last-child {
+        margin-right: 0;
+      }
+
+      .nav-item a {
+        color: #000;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-item a:hover {
+        color: #333;
+      }
+
+      .main-banners {
+        
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-top: 4%;
+        font-size: 12pt;
+        background-color:wheat;
+        /*background-image: url("background1.jpg");*/
+      }
+      .main-banners > section{
+        background-color:bisque;
+        border-radius: 0%;
+      }
+    </style>
+</head>
+<body  onload="showTime()">
+  <header class="text-gray-600 body-font" style="background-color:lightcyan">
+    <div class="container mx-auto flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="#" style="display: flex;">
+        <div style="padding-top: 10px;padding-left: 10px;">
+          <img src="/images/logo1.jpg" style="width: 30px; height: 30px;  border-radius: 50%;">
+        </div>
+        <span class="ml-3 text-xl" style="font-size: 15pt;">Bhavish JB</span>
+        <div class="flex-auto" style="padding-left: 50%; ">
+          <div style="border-color: aliceblue; display: flex;">
+          <h1 style="font-size: 10pt;padding-top: 0%;">Live Time:</h1>
+          <h2 id="livetime" style="padding-top: 0%; padding-left: 5%"></h2>
+          </div>
+        </div>
+      </a>
+      <ul class="md:ml-auto flex flex-wrap items-center text-base justify-center nav-menu">
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./About.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./Qualif.html">Qualification</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./skills.html">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./Achieve.html">Galllery</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./Contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+</header>
+<div class="main-banners" style="margin: 5%;">
+  <h2 style="margin: 5%;">About me</h2>
+  <section id="objective"style="border: 1pt solid; height: auto;width: auto;margin: 5%;"><br>
+    <h2>Objective:</h2>
+    <p>To enhance my working capabilities, business efficiencies, and professional skills to serve my organization with sheer commitment and determination.</p><br>
+</section>
+
+<section id="projects" style="border: 1pt solid; height: auto;width: auto;margin: 5%;"><br>
+    <h2>Projects:</h2>
+    <ul>
+        <li>Mindmate - A mobile application that supports mental health and cognitive well-being.</li>
+        <li>FlyWeight Polls- A poll appliction using React js and Django</li>
+    </ul><br>
+</section>
+<section id="hobbies"style="border: 1pt solid; height: auto;width: auto;margin: 5%;">
+  <br>
+  <h2>Hobbies:</h2>
+  <ul>
+      <li>Reading books</li>
+      <li>Playing chess</li>
+      <li>Exploring new technologies</li>
+      <li>Playing Football</li>
+  </ul><br>
+</section>
+
+
+<section id="Language"style="border: 1pt solid; height: auto;width: auto;margin: 5%;">
+  <br>
+  <h2>Language</h2>
+  <p> Hindi, English, Kannada</p>
+  <br>
+</section>
+
+
+
+<section id="contacts" style="border: 1pt solid; height: auto;width: auto;margin: 5%;">
+  <br>
+    <h2>Contact details:</h2>
+    <ul>
+        <li>Phone: +91 6366631230</li>
+        <li>Email: bhavishkarkera22@gmail.com</li>
+        <li>Address: Mangalore, Karnataka</li>
+    </ul>
+    <br>
+</section><br><br>
+
+
+</div>
+<footer style="margin: 10%;">
+  <p>&copy; 2023 Bhavish J B</p>
+</footer>
+    
+    <script type="text/javascript">
+      function showTime() {
+        var currentTime = new Date();
+        var options = { timeZone: 'Asia/Kolkata' };
+        var localTime = currentTime.toLocaleTimeString('en-IN', options);
+        
+        document.getElementById('livetime').textContent = localTime;
+        setTimeout(showTime, 1000);
+      }
+    </script>
+</body>
+</html>

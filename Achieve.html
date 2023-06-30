@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="./gl.css">
+    <style>
+      
+      .nav-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+      }
+
+      .nav-item {
+        margin-right: 15px;
+      }
+
+      .nav-item:last-child {
+        margin-right: 0;
+      }
+
+      .nav-item a {
+        color: #000;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-item a:hover {
+        color: #333;
+      }
+
+      .main-banners {
+        padding-top: 5%;
+        /* font-size: 30pt;
+        background-image: url("background1.jpg"); */
+      }
+    </style>
+</head>
+<body  onload="showTime()">
+  <header class="text-gray-600 body-font" style="background-color:lightcyan">
+    <div class="container mx-auto flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="#" style="display: flex;">
+        <div style="padding-top: 10px;padding-left: 10px;">
+          <img src="/images/logo1.jpg" style="width: 30px; height: 30px;  border-radius: 50%;">
+        </div>
+        <span class="ml-3 text-xl" style="font-size: 15pt;">Bhavish JB</span>
+        <div class="flex-auto" style="padding-left: 50%; ">
+          <div style="border-color: aliceblue; display: flex;">
+          <h1 style="font-size: 10pt;padding-top: 0%;">Live Time:</h1>
+          <h2 id="livetime" style="padding-top: 0%; padding-left: 5%"></h2>
+          </div>
+        </div>
+      </a>
+      <ul class="md:ml-auto flex flex-wrap items-center text-base justify-center nav-menu">
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./About.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./Qualif.html">Qualification</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./skills.html">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./Achieve.html">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="mr-5 hover:text-gray-900" href="./Contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+</header>
+<div class="main-banners">
+  
+      <h1 style="font-size: 30pt;"> Gallery</h1>
+  
+      <div class="gallery" id="gallery" >
+          <div class="gallery-item">
+              <div class="content"><img src="./img/img1.jpg"></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="./img/img2.jpg"></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="./img/img3.jpg" alt=""></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="./img/img4.jpg" ></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="./img/img5.jpg" ></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="./img/img6.jpg" ></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="./uploads/gallery_img-01.jpg" ></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="./uploads/gallery_img-02.jpg" ></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="./uploads/gallery_img-04.jpg" ></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="/uploads/gallery_img-03.jpg"></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="/img/img11.jpg" ></div>
+          </div>
+          <div class="gallery-item">
+              <div class="content"><img src="/uploads/gallery_img-05.jpgS"></div>
+          </div>
+          
+      </div>
+</div>
+       
+  </body>
+  </html>
+<script>var gallery = document.querySelector('#gallery');
+  var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+  var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+  var resizeAll = function () {
+      var altura = getVal(gallery, 'grid-auto-rows');
+      var gap = getVal(gallery, 'grid-row-gap');
+      gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+          var el = item;
+          el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+      });
+  };
+  gallery.querySelectorAll('img').forEach(function (item) {
+      item.classList.add('byebye');
+      if (item.complete) {
+          console.log(item.src);
+      }
+      else {
+          item.addEventListener('load', function () {
+              var altura = getVal(gallery, 'grid-auto-rows');
+              var gap = getVal(gallery, 'grid-row-gap');
+              var gitem = item.parentElement.parentElement;
+              gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+              item.classList.remove('byebye');
+          });
+      }
+  });
+  window.addEventListener('resize', resizeAll);
+  gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+      item.addEventListener('click', function () {        
+          item.classList.toggle('full');        
+      });
+  });
+  function showTime() {
+      var currentTime = new Date();
+      var options = { timeZone: 'Asia/Kolkata' };
+      var localTime = currentTime.toLocaleTimeString('en-IN', options);
+      
+      document.getElementById('livetime').textContent = localTime;
+      setTimeout(showTime, 1000);
+    }
+  </script>
+
+</body>
+</html>
